@@ -1,10 +1,12 @@
 #include<iostream>
 using namespace std;
-
 int main(){
-    char str[101];
-
-    while(cin.getline(str, 101, '\n')){
-        cout << str << endl;
+    int T,a;
+    int sum=0;
+    cin >> T;
+    while(T--){
+        scanf("%1d", &a);
+        sum +=a;
     }
+    cout << sum;
 }
