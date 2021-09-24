@@ -2,12 +2,12 @@
 using namespace std;
 
 int main(){
-    char str[11];
     int a;
-    while((a =scanf("%10s", &str))==1){
-        printf("scanf return : %d\n", a);      
-        cout << str << endl;
+    int i =0;
+    cin >> a;
+    if(a>100000) return 0;
+    while(i<a){
+        cout << i+1 << endl;
+        i++;
     }
-
-    printf("last scanf return value : %d\n", a);
 }
