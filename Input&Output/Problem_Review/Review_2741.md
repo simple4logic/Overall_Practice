@@ -25,7 +25,7 @@
 ```
 
 ## 나의 제출
-```
+```cpp
 #include<iostream>
 using namespace std;
 
