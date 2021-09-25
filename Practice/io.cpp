@@ -1,13 +1,12 @@
-#include<iostream>
-using namespace std;
-
-int main(){
-    int a;
-    int i =0;
-    cin >> a;
-    if(a>100000) return 0;
-    while(i<a){
-        cout << i+1 << endl;
-        i++;
-    }
+#include<stdio.h>
+int main()
+{
+ int n,z,x;
+ scanf("%d",&n);
+ for(z=1;z<=n;z++){
+  for(x=0;x!=n-z;x++)printf("1");
+  for(x=0;x!=z;x++)printf("*1");
+  puts("");
+ }
+ return 0;
 }
