@@ -17,3 +17,6 @@ Dynamic Programming - 1463, 11726, 11727, 9095, 10844, 11057, 2193, 9465, 2156, 
 
 전체적인 개요
 >https://velog.io/@guide333/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80-%EB%B0%A9%EB%B2%95
+
+알고리즘 공부 개요
+>https://blog.yena.io/studynote/2018/11/14/Algorithm-Basic.html
