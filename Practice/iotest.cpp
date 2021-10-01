@@ -1,15 +1,24 @@
 #include <iostream>
-#include<string>
 using namespace std;
-
+int scoring(char* a);
 int main(){
-    int x[10]={};
     int n;
-    int a=0;
-    while(~scanf("%d",&n)){ //입력을 다받을 때까지
-        x[a] = n%42;
-        a++;
-    } // 모든 나머지 배열 입력 완료
-    
-}
+    scanf("%d", &n);
+    while(n--){
+        char arr[80]={};
 
+        while(cin >> arr)
+        printf("%d\n",scoring(arr));
+    }
+}
+int scoring(char *a){
+    int sum=0, x=0, y=0;
+    while(a[x]!='\0'){
+        y++;
+        if(a[x]=='X')
+            y=0;
+        sum+=y;
+        x++;
+    }
+    return sum;
+}
