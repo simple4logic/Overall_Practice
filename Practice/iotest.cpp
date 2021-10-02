@@ -1,24 +1,24 @@
-#include <iostream>
+#include<iostream>
+#include<vector>
 using namespace std;
-int scoring(char* a);
+long long sum(int* a, int n);
 int main(){
-    int n;
-    scanf("%d", &n);
-    while(n--){
-        char arr[80]={};
-
-        while(cin >> arr)
-        printf("%d\n",scoring(arr));
+    int x,n=0; // n = 입력받은 정수 개수
+    vector<int> arr(0);
+    while(~scanf("%d", &x)){
+        arr.push_back(x);
+        n++;
     }
+    int* b = new int[n+1];
+    copy(arr.begin(), arr.end(), b);
+    printf("%lld", sum(b, n));
 }
-int scoring(char *a){
-    int sum=0, x=0, y=0;
-    while(a[x]!='\0'){
-        y++;
-        if(a[x]=='X')
-            y=0;
-        sum+=y;
-        x++;
+long long sum(int*a, int n){
+    long long Ans=0;
+    int i=0;
+    while(n--){
+        Ans+=a[i];
+        i++;
     }
-    return sum;
+    return Ans;
 }
