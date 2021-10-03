@@ -13,12 +13,15 @@ int main(){
     copy(arr.begin(), arr.end(), b);
     printf("%lld", sum(b, n));
 }
-long long sum(int*a, int n){
-    long long Ans=0;
+
+long long sum(std::vector<int> &a) {
+	long long ans = 0;
     int i=0;
+    int n =a.size();
     while(n--){
-        Ans+=a[i];
+        ans+=a[i];
         i++;
     }
-    return Ans;
+	return ans;
 }
+
