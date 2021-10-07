@@ -138,4 +138,6 @@ v.capacity();
 - size : 할당된 메모리 안에 요소가 들어있는것의 개수 
 - capacity : 할당된 메모리의 크기
 
+<br>
 
+> 출처 : https://blockdmask.tistory.com/70
