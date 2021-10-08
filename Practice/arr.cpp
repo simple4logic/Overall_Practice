@@ -3,24 +3,26 @@ using namespace std;
 
 int main(){
     vector<int> a(26);
-    int i=0;
-    int max=0;
+    int i=0, max=0, id=0;
     string let;
-    cin >> let; // 문자 입력 완료
-    transform(let.begin(), let.end(), let.begin(), ::toupper); // 모두 대문자로 변경
+    cin >> let;
+    transform(let.begin(), let.end(), let.begin(), ::toupper);
     while(let[i]){
         int temp = let[i];
         a[temp-65]++;
-        i++; //나온 수만큼 배열에 정렬 0001003003000 이런식으로
+        i++;
     }
-    for(auto N : a){ //N은 벡터 a의 원소 차례로
-        if(max == N)
-            max = -1; // 중복해서 등장했는지 filtering
-        if(max < N)
-            max = N; // 필터 이후에는 정상적인 max 탐색
+    i =0;
+    for(auto N:a){
+        if(a[i]!=0)if(max == a[i])id = -1;
+        if(max < a[i]){
+            max = a[i];
+            id = i;
+        }
+        i++;
     }
-    if(max == -1)
+    if(id == -1)
         printf("?");
     else
-        printf("%d", max);
+        printf("%c", 65+id);
 }

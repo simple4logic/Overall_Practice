@@ -1,27 +1,21 @@
-#include<iostream>
-#include<vector>
+#include <bits/stdc++.h>
 using namespace std;
-long long sum(int* a, int n);
+
 int main(){
-    int x,n=0; // n = 입력받은 정수 개수
-    vector<int> arr(0);
-    while(~scanf("%d", &x)){
-        arr.push_back(x);
-        n++;
+    int ans=0, x=0; //문자 사이의 공백 수
+    char n;
+    while(~scanf("%c", &n)){
+        if(n==' '){
+            if(x==0) // 맨 첫번째 공백 filtering
+                cout << "first filter activated"<<endl;
+            else
+                ans++;
+        }
+        x=1; //첫 입력 끝나면 더이상 first filter X
     }
-    int* b = new int[n+1];
-    copy(arr.begin(), arr.end(), b);
-    printf("%lld", sum(b, n));
-}
-
-long long sum(std::vector<int> &a) {
-	long long ans = 0;
-    int i=0;
-    int n =a.size();
-    while(n--){
-        ans+=a[i];
-        i++;
+    if(n==' '){
+        ans--; 
+        cout << "last filter activated"<< endl;
     }
-	return ans;
+    printf("%d", ans+1);
 }
-
