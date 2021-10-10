@@ -2,20 +2,19 @@
 using namespace std;
 
 int main(){
-    int ans=0, x=0; //문자 사이의 공백 수
+    int ans=0, x=0;
     char n;
     while(~scanf("%c", &n)){
         if(n==' '){
-            if(x==0) // 맨 첫번째 공백 filtering
-                cout << "first filter activated"<<endl;
+            if(x==0)
+                ;
             else
                 ans++;
         }
-        x=1; //첫 입력 끝나면 더이상 first filter X
+        x=1;
     }
-    if(n==' '){
+    if(n == '\0'){printf("0"); return 0;}
+    if(n==' ')
         ans--; 
-        cout << "last filter activated"<< endl;
-    }
     printf("%d", ans+1);
 }

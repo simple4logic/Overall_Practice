@@ -7,13 +7,14 @@ int main(){
     while(~scanf("%c", &n)){
         if(n==' '){
             if(x==0)
-                ;
+                cout<<"first filtering\n";
             else
                 ans++;
         }
         x=1;
     }
+    if(n == '\0') {cout << "zero word\n" ;printf("0"); return 0;} //zero word filtering
     if(n==' ')
-        ans--; 
+        {ans--;cout<<"last filtering\n";} 
     printf("%d", ans+1);
 }
