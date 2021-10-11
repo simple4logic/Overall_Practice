@@ -2,19 +2,19 @@
 using namespace std;
 
 int main(){
-    int ans=0, x=0;
-    char n;
-    while(~scanf("%c", &n)){
-        if(n==' '){
-            if(x==0)
-                cout<<"first filtering\n";
-            else
-                ans++;
-        }
-        x=1;
+    int a, b;
+    scanf("%d %d", &a, &b);
+    vector<int> A, B;
+    for(;a;){ //until A<1
+        A.push_back(a%10); //맨 끝자리 삽입
+        B.push_back(b%10);
+        a /= 10; // 맨끝자리 삭제
+        b /= 10;
     }
-    if(n == '\0') {cout << "zero word\n" ;printf("0"); return 0;} //zero word filtering
-    if(n==' ')
-        {ans--;cout<<"last filtering\n";} 
-    printf("%d", ans+1);
+    int x = 0, y = 0;
+    for (auto a : A)
+        x = x*10 + a;
+    for (auto a : B)
+        y = y*10 + a;
+    printf("%d", max(x, y));
 }
