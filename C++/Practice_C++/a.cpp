@@ -2,14 +2,26 @@
 using namespace std;
 
 int main(){
-    int a;
-    cin >> a;
+    int n,a=0;
+    scanf("%d", &n);
+    if(n%5==0)
+        a = n/5;
+    else if(n%5==1)
+        a = n/5 +1;
+    else if(n%5==2){
+        if(n==7)
+            a = -1;
+        else
+            a = n/5 +2;
+    }
+    else if(n%5==3)
+        a = n/5 +1;
+    else
+        if(n==4)
+            a=-1;
+        else
+            a =n/5+2;
     printf("%d", a);
-}
-/*
-    높이가 V 미터인 나무를 올라감
-    하루에 A미터씩 올라감
-    밤에 B미터씩 미끄러짐
+ }
 
-    골 = 10
-*/
+ 
