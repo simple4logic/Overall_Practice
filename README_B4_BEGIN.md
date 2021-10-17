@@ -19,5 +19,3 @@ cin.getline을 사용했더니 Q8958번에서 이상하게 자꾸만 0을 출력
 자주 틀리는 이슈 정리   
 https://www.acmicpc.net/blog/view/55 -> 이거review로 작성해볼까?
 
-## 5.
-2869번 풀려 시도하다가 멈춤
