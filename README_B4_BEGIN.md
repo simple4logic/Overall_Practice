@@ -20,6 +20,7 @@ cin.getline을 사용했더니 Q8958번에서 이상하게 자꾸만 0을 출력
 https://www.acmicpc.net/blog/view/55 -> 이거review로 작성해볼까?
 
 ## 5.
-1011 번 풀다가 말았음.
-일단 step 1: y-1에 도착하기 까지 필요한 일수 +1
+1929번 문제 풀다가 멈춤.
+참고 > https://wikidocs.net/21638
+그리고 더불어서 dynamic array에서 range based loop를 하고 싶으면 begin과 end를 직접 정해주어야함.
 
