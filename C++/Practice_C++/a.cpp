@@ -5,36 +5,43 @@ int main(){
     vector<int> Ans;
     int min, max;
     scanf("%d %d", &min, &max);
-    int arr[2]={max, min};
     bool *test = new bool[max+1];
 
-    for(auto a : test) a=true; 
+    //for(auto a : test) a=true; dynamic array does not support range-based loop
+    for(int i=0;i<max+1;i++) //bool array init.
+        test[i]=true;
+
     test[0]=false;
-    test[1]=false; //bool array 초기화
-    
-    for(auto x : arr){
-        for(int i=2;i<=x+1;i++){
-            if(test[i]){
-                //Ans.push_back(i); //어짜피 삽입은 test 배열 기반으로 나중에 한꺼번에 하면 됨.
-                for(int j =i*i;j*j<=x+1;j++){
-                    test[j]= ~test[j]; //default : false; //비트 반전
+    test[1]=false; //about 0 & 1, make its decision not prime.
+
+    for(int i=2;i<=max+1;i++){
+        if(test[i]){
+            if(i*i>1000001) break;
+            else{
+                for(long int j =i*i; j<=max+1;j+=i){
+                    test[j]= false;
                 }
             }
         }
     }
-    int i=0;
-    for(auto y : test){
-        if(test[i])
-            Ans.push_back(i);
-        i++;
+
+    for(int k=2;k<min;k++)
+        test[k]=false;
+
+    //put values to Ans vector if it is true (=prime number)
+    for(int j=0;j<max+1;j++){
+        if(test[j])
+            Ans.push_back(j);
     }
     for(auto b : Ans)
         printf("%d\n", b);
+
+    delete []test;
  }
 
 
  /*
- 처음 arr 를 f(=0) f(=1) 나머지 (2부터 소수마즘)true로 초기화 해놓는다.
+ 처음 arr 를 f(=0) f(=1) 나머지 (2부터 소수맞음)true로 초기화 해놓는다.
  2부터 n+1까지 i를 loop
  배열 값이 true라면(소수라면) 정답 배열에 append한다.
  그 다음 for loop 시작 2*i 부터 n+1 까지 i만큼 이동 (처음에는 i=2이므로 2배수이동.)
