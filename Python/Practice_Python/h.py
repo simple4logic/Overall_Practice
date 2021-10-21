@@ -1,19 +1,17 @@
-n=100
-k=25
-a = [False,False] + [True]*(n-1)
-primes=[]
+a, b = input().split()
+a=int(a)
+b=int(b)
 
-for i in range(2,n+1):
-  if a[i]:
-    #primes.append(i)
-    for j in range(i*i, n+1, i):
-        a[j] = False
+hint = [False,False] + [True]*(b-1)
 
-for x in range(2,k+1):
-  a[x]=False
-#print(a)
+for i in range(2,b+1):
+    if hint[i]:
+        for j in range(i*i, b+1, i):
+            hint[j] = False
 
-for k in range(2,n+1):
-    if a[k]:
-        primes.append(k)
-print(primes)
+for k in range(2,a):
+    hint[k]=False
+
+for l in range(2,b+1):
+    if hint[l]:
+        print(l, end='\n')
