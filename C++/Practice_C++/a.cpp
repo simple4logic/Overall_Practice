@@ -1,25 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void division(int x);
+int primegen(int max);
 
 int main(){
     int n;
-    scanf("%d", &n);
-    division(n);
-    return 0;
+    while(n--){
+
+    }
  }
 
- void division(int x){
-    if(x==1) //exit of recursion // case1 input is 1 or end of recursion.
-        exit(0);
-
-    for(int i=2;i<=x;i++){ // if x =3
-        if(x%i==0){//if divided by i
-            x = x/i;
-            printf("%d\n", i);
-            //printf("now x: %d\n", x);
-            division(x);
+ int primegen(int max){
+    bool *test = new bool[max+1];
+    for(int i=0;i<max+1;i++)
+        test[i]=true;
+    test[0]=false;
+    test[1]=false;
+    for(long int i=2;i<=max+1;i++){
+        if(test[i]){
+            for(long int j =i*i; j<=max+1;j+=i){
+                test[j]= false;
+            }
         }
     }
+
+    for(int j=0;j<max+1;j++){
+        if(test[j])
+            printf("%d\n", j);
+    }
+
+    delete[] test;
  }

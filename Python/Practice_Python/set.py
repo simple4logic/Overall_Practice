@@ -1,4 +1,4 @@
-prime = []
+prime = set()
 
 #Functions that put prime numbers under or same N to the list "prime"
 #U need to check useless repeatance by checking max input.
@@ -21,7 +21,7 @@ def primegen(a: int):
 
     for l in range(start,a+1):
         if hint[l]:
-            prime.append(l)
+            prime.add(l)
 
 #this function print answers by using generated list & input.
 '''
@@ -32,10 +32,9 @@ Therefore it's very time consuming. Let's implement the concept "LIS(Longest Inc
 def makeAns(x: int): #x is input num
     global prime
     AnsI: int = 0
-    for i in prime[len(prime)//2:]: #starting from center is time-efficient method. in this, i is bigger than x
+    for i in prime: #starting from center is time-efficient method. in this, i is bigger than x
         if i <= x-i:
-            #print(f"this is i: {i}\n")
-            if x-i in prime[len(prime)//2:]:
+            if x-i in prime:
                     AnsI=i
         else :
             break
@@ -55,6 +54,3 @@ for i in range(n): #n th repeat
 
     primegen(A) #generated list of prime numbers.
     makeAns(A)
-    
-    
-
