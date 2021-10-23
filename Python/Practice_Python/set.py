@@ -31,8 +31,8 @@ Therefore it's very time consuming. Let's implement the concept "LIS(Longest Inc
 '''
 def makeAns(x: int): #x is input num
     global prime
-    AnsI: int = 0
-    for i in prime: #starting from center is time-efficient method. in this, i is bigger than x
+    AnsI: int = 0 # init of variable is mandatory.
+    for i in prime:
         if i <= x-i:
             if x-i in prime:
                     AnsI=i
