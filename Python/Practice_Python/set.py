@@ -3,14 +3,8 @@ prime = set()
 #Functions that put prime numbers under or same N to the list "prime"
 #U need to check useless repeatance by checking max input.
 def primegen(a: int):
-    global max, prime
+    global prime
     start: int = 2 #check whether it is prime or not from number 2(=variable named start)
-
-    if a < max:
-        return #already generated, so escape.
-    
-    if a > max:
-        start = max #start point is previous max num.
 
     hint = [False,False] + [True]*(a-1)
 
@@ -31,26 +25,24 @@ Therefore it's very time consuming. Let's implement the concept "LIS(Longest Inc
 '''
 def makeAns(x: int): #x is input num
     global prime
-    AnsI: int = 0 # init of variable is mandatory.
-    for i in prime:
-        if i <= x-i:
-            if x-i in prime:
-                    AnsI=i
-        else :
-            break
-    print(f"{AnsI} {x-AnsI}\n")
-    return  
-                
-# 1 2 3 4 5
+    Ans = {}
+
+    for i in prime: #since there is no order in set function.
+        if x-i in prime:
+                if i < x-i:
+                    Ans[(x-i)-i]=[i, x-i] #sort the calculated result
+                else:
+                    Ans[i-(x-i)]=[x-i, i]
+    
+    keylist=list(Ans.keys())
+    print(Ans[min(keylist)][0], Ans[min(keylist)][1])
+     
 
 n=int(input()) #n = how many times to repeat
 
 for i in range(n): #n th repeat
-    max = 0
+
     A = int(input())
-   
-    if max < A:
-        max = A #max init to prevent useless primegen loop.
 
     primegen(A) #generated list of prime numbers.
     makeAns(A)

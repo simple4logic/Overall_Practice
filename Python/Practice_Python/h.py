@@ -2,15 +2,13 @@ prime = []
 
 #Functions that put prime numbers under or same N to the list "prime"
 #U need to check useless repeatance by checking max input.
-def primegen(a: int):
-    global max, prime
+def primegen(a: int, b: int): #a input, b is before max.
+    global prime
     start: int = 2 #check whether it is prime or not from number 2(=variable named start)
-
-    if a < max:
-        return #already generated, so escape.
     
-    if a > max:
-        start = max #start point is previous max num.
+    if a > b:
+        print("new prime is now generating!\n")
+        start = b #start point is previous max num.
 
     hint = [False,False] + [True]*(a-1)
 
@@ -45,16 +43,17 @@ def makeAns(x: int): #x is input num
 # 1 2 3 4 5
 
 n=int(input()) #n = how many times to repeat
-
+max: int =0
 for i in range(n): #n th repeat
-    max = 0
     A = int(input())
-   
-    if max < A:
-        max = A #max init to prevent useless primegen loop.
 
-    primegen(A) #generated list of prime numbers.
-    makeAns(A)
+    if A > max: #when input is bigger than before.
+        primegen(A, max)
+        makeAns(A)
+        max = A
+        print(f"now max is : {max}\n")
+        print(prime, end='\n')
     
-    
-
+    else: #when new input is smaller than before
+        makeAns(A)
+        print(prime, end='\n')
