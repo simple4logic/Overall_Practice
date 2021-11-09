@@ -1,37 +1,46 @@
 #include <bits/stdc++.h>
-using namespace std;
+
+class Point{
+    public:
+        int x;
+        int y;
+       
+        Point(int input_x, int input_y){
+            x = input_x;
+            y = input_y;
+        }
+        
+};
+
+double dist(Point a1, Point a2);
+int sol(double dist, int r1, int r2);
 
 int main(){
-    vector<int> Ans;
-    int min, max;
-    scanf("%d %d", &min, &max);
-    bool *test = new bool[max+1];
+    int x1, y1, r1, x2, y2, r2;
+    scanf("%d %d %d %d %d %d", &x1, &y1, &r1, &x2, &y2, &r2);
+    Point p1(x1, y1);
+    Point p2(x2, y2);
+    double D = dist(p1, p2);
+    //printf("this is r1+r2 : %d\n", r1+r2);
+    //printf("this is Dist : %lf\n", D);
+    int Ans = sol(D, r1, r2);
+    printf("%d\n", Ans);
+}
 
-    //for(auto a : test) a=true; dynamic array does not support range-based loop
-    for(int i=0;i<max+1;i++) //bool array init.
-        test[i]=true;
+double dist(Point a1, Point a2){
+    double X = pow((a1.x-a2.x), 2);
+    double Y = pow((a1.y-a2.y), 2);
+    double Z = sqrt(X+Y);
+    return Z;
+}
 
-    test[0]=false;
-    test[1]=false; //about 0 & 1, make its decision not prime.
+int sol(double dist, int r1, int r2){
+    if(dist == 0)
+        return 0;
 
-    for(long int i=2;i<=max+1;i++){
-        if(test[i]){
-            for(long int j =i*i; j<=max+1;j+=i){
-                test[j]= false;
-            }
-        }
-    }
-
-    for(int k=2;k<min;k++)
-        test[k]=false;
-
-    //put values to Ans vector if it is true (=prime number)
-    for(int j=0;j<max+1;j++){
-        if(test[j])
-            Ans.push_back(j);
-    }
-    for(auto b : Ans)
-        printf("%d\n", b);
-
-    delete []test;
- }
+    if(dist < (r1+r2))
+        return 2;
+    else if(dist > (r1+r2))
+        return 0;
+    else return 1; //when dist = radius1 & 2
+}

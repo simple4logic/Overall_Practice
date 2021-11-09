@@ -1,25 +1,18 @@
 #include <bits/stdc++.h>
-using namespace std;
 
-class point{
-    private:
+class Point{
+    public:
         int x;
         int y;
-    public:
-        point(int input_x, int input_y){
+       
+        Point(int input_x, int input_y){
             x = input_x;
             y = input_y;
         }
-        void pX(){ const
-            return x;
-        }
-        void pY(){ const
-            return y;
-        }
-
+        
 };
 
-double dist(point a1, point a2);
+double dist(Point a1, Point a2);
 int sol(double dist, int r1, int r2);
 
 int main(){
@@ -27,19 +20,26 @@ int main(){
     scanf("%d", &n);
     while(n--){
             int x1, y1, r1, x2, y2, r2;
-            scanf("%d %d %d %d %d %d", x1, y1, r1, x2, y2, r2);
+            scanf("%d %d %d %d %d %d", &x1, &y1, &r1, &x2, &y2, &r2);
+            Point p1(x1, y1);
+            Point p2(x2, y2);
+            double D = dist(p1, p2);
+            int Ans = sol(D, r1, r2);
+            printf("%d\n", Ans);
         }
-    }
 }
 
-double dist(point a1, point a2){
-    double X = pow((a1.pX()-a2.pX()), 2);
-    double Y = pow((a1.pY()-a2.pY()), 2);
+double dist(Point a1, Point a2){
+    double X = pow((a1.x-a2.x), 2);
+    double Y = pow((a1.y-a2.y), 2);
     double Z = sqrt(X+Y);
     return Z;
 }
 
 int sol(double dist, int r1, int r2){
+    if(dist == 0)
+        return 0;
+
     if(dist < (r1+r2))
         return 2;
     else if(dist > (r1+r2))
