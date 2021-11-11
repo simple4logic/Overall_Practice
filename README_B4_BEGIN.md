@@ -21,9 +21,3 @@ https://www.acmicpc.net/blog/view/55 -> 이거review로 작성해볼까?
 
 ## 5.
 ps는 가급적 C++로 하자! time out 때문에,,,,
-
-## 6.
-1002번 문제풀고 있었는데 class를 이용해서 일부로 좀 장황하게 푼 감이 있다.
-아무튼 무슨 문제인지 확인을 더 해보자. 극한조건 (edge of the condition)을 꼭 test해보고 제출해볼것.
-
-

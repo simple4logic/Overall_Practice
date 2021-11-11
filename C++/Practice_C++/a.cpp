@@ -37,12 +37,23 @@ double dist(Point a1, Point a2){
 }
 
 int sol(double dist, int r1, int r2){
-    if(dist == 0)
-        return 0;
+    if(dist==0){
+        if(r1==r2)
+            return -1;
+    }
 
-    if(dist < (r1+r2))
-        return 2;
-    else if(dist > (r1+r2))
+    if(dist > (r1+r2))
         return 0;
-    else return 1; //when dist = radius1 & 2
+    else if(dist == (r1+r2))
+        return 1;
+    else if(dist < (r1+r2)){
+        if(dist > abs(r1-r2))
+            return 2;
+        else if(dist == abs(r1-r2))
+            return 1;
+        else if(dist < abs(r1-r2))
+            return 0;
+        else return 10; // for dummy result
+    }
+    else return 10; //for dummy result
 }
