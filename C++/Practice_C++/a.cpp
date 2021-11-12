@@ -2,25 +2,31 @@
 using namespace std;
 
 int main(){
-    int ans=0, x=0, c=0;
-    char n;
-    while((n=getchar())&&(n!='\n')){ //input until newline
-        if(n==' '){
-            if(x==0)
-                ; //first filtering
-            else
-                ans++;
+    int num, maxVal; //maxVal is the result value that we should reach by adding three elements
+    scanf("%d %d", &num, &maxVal);
+    int* arr = new int[num];
+    int cnt = num;
+    while(cnt--){
+        int t;
+        scanf("%d", &t);
+        arr[cnt]=t;
+    }
+
+    int max=0,sum=0; //current max. when it reaches maxVal, stop loop and return maxVal.
+
+    for(int i=0;i<num-2;i++){ //i should be below length-2
+        for(int j=i+1;j<num-1;j++){ // j should be below length-1
+            for(int k=j+1;k<num;k++){
+                sum=(arr[i]+arr[j]+arr[k]);
+                if((max < sum)&&(sum<=maxVal))
+                    max = sum;
+                if(max == maxVal){
+                    printf("%d", maxVal);
+                    return 0;
+                }
+            }
         }
-        if(n!=' ') //to check whether letter emerged or not
-            c++;
-        x=1;
     }
-    //if(n == '\0'){printf("0"); return 0;} //zero word filtering
-    if(n==' '){ //ends with blank(=last word is blank)
-        if(c==0)
-            return 0; //when starts with blank, and ends with blank. this case word is zero.
-        ans--; //last filtering
-        printf("last filtering activated!\n");
-    }
-    printf("%d", ans+1);
+
+    printf("%d", max);
 }
