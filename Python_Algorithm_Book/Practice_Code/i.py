@@ -1,20 +1,18 @@
 from typing import List
+import re
+from collections import Counter
 
 class Solution:
-    def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        let: List[str] = []
-        dig: List[str] = []
-        for a in logs:
-            if a.split()[1].isdigit(): #in other words, when letter log
-                dig.append(a)
-            else:
-                let.append(a)
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        a = paragraph.lower()
+        a = re.sub('[\W]',' ',a) #특수문자들 모두 space로 변경
+        lis = a.split() # split by space
+        cntdic = Counter(lis)
+        t = banned[0]
+        if t in cntdic:
+            del cntdic[t]
+        #print(max(cntdic.keys()))
 
-        let.sort(key=lambda x:(x.split()[1], x.split()[0]))
-        return let+ dig
-            
-
-#for testing
-s = Solution()
-logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
-s.reorderLogFiles(logs)
+a = Solution()
+s = "Bob hit a ball, the hit BALL flew far after it was hit."
+a.mostCommonWord(s, ["hit"])
