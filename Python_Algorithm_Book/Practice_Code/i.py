@@ -1,14 +1,20 @@
 from typing import List
 
 class Solution:
-    def reverseString(self, s: List[str]) -> None:
-        for i in range(len(s)//2):
-            a: str = s[i] #save first
-            print(a)
-            s[i]=s[-(i+1)]
-            print(s[i])
-            s[-(i+1)] = a
-        print(s)
+    def reorderLogFiles(self, logs: List[str]) -> List[str]:
+        let: List[str] = []
+        dig: List[str] = []
+        for a in logs:
+            if a.split()[1].isdigit(): #in other words, when letter log
+                dig.append(a)
+            else:
+                let.append(a)
 
+        let.sort(key=lambda x:(x.split()[1], x.split()[0]))
+        return let+ dig
+            
+
+#for testing
 s = Solution()
-s.reverseString(["a","b","c","d"])
+logs = ["dig1 8 1 5 1","let1 art can","dig2 3 6","let2 own kit dig","let3 art zero"]
+s.reorderLogFiles(logs)
