@@ -1,19 +1,15 @@
 from typing import List
 import re
-from collections import Counter
+import collections
 
 class Solution:
-    def stringsort(self, strs: str) -> str:
-        la = sorted(strs)
-        return "".join(la)   
-
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        dic={}
+        dic=collections.defaultdict(list)
+        #dic={}
+
         for words in strs:
-            dic[words] = stringsort(words) #word : sorted word
-        print(dic)
-
-
+            dic[''.join(sorted(words))].append(words)
+        print(list(dic.values()))
 
 #for testing
 a = Solution()
