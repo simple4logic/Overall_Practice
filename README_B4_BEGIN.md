@@ -38,4 +38,5 @@ BOJ PS
 2231번 풀던 중이었음.
 
 ## 10.
-q9 마저 작성
+q11 p193 LC 238 풀고 있었음 헷갈리네 ㄹㅇ
+https://everenew.tistory.com/202 풀이 참고
