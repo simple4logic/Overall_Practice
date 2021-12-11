@@ -37,5 +37,3 @@ BOJ PS
 ## 10.
 1. q13 LC234 팰린드롬 연결 리스트 리뷰 쓰던 중이었음 마지막 풀이4 러너를 이용한 부분만 마치면 됨
 2. linked-list tips 쓰고 있었음 마저 마무리 할 것.
-https://daimhada.tistory.com/72
-https://velog.io/@woga1999/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-%EB%A7%81%ED%81%AC%EB%93%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8

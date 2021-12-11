@@ -16,19 +16,22 @@ class Solution:
             fast = fast.next.next
             rev, rev.next, slow = slow, rev, slow.next
             #making reverse linked list until the middle point
+            #put slow to rev. Then 'slow' moves to the next, and 'rev' moves to the before
         if fast:
             slow = slow.next #when odd length, move one more
 
         while rev and (rev.val==slow.val):
-            slow, rev = slow.next, rev.next #next node
+            slow, rev = slow.next, rev.next
         return not rev
         '''
         do it until rev reaches the end or not palindrome 
-        when reaches the end, rev is none. It means palindrome so rev = 
+        when reaches the end, rev is none. It means palindrome, so not rev == True 
+        when stops in the middle, it means not palindrome. so this time rev has value.
+        not rev == False
         '''
 '''
-rev <- slow
-rev.next <- rev
+rev <- slow //in first loop, rev is the head
+rev.next <- rev //in first loop, 
 slow <- slow.next
 
 '''
