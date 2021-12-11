@@ -31,13 +31,35 @@ x = 1, y = 2
 x, y = y, x + y
 result : x = 2, y = 3
 
+#it is because process is
+A = y
+B = x+y
+x = A
+y = B
+
 #repeating single assign
 x = 1, y = 2
 x = y
 y = x + y
 result : x = 2, y = 4
 ```
-위의 code block을 보면 코드를 그저 두 줄로 나누었을 뿐인데 값이 달라진다. 그 이유는 앞서 설명했던 것처럼 multi-assign을 진행하기 이전에 우측에서 모든 equation을 계산한 이후에 값을 할당하기 때문이다.
+위의 code block을 보면 코드를 그저 두 줄로 나누었을 뿐인데 값이 달라진다. 그 이유는 앞서 설명했던 것처럼 multi-assign을 진행하기 이전에 우측에서 모든 equation을 계산한 이후에 값을 할당하기 때문이다. Q13에서 나타났었던 문제도 살펴보자.
+
+```py
+rev, rev.next = node, rev
+#This is same as
+A = node
+B = rev
+rev = A 
+rev.next = B
+```
+위의 코드를 보면
+- A에 노드가 할당된다. 
+- B에 rev 연결리스트의 head 노드인 rev가 할당된다.
+- "rev = A"에 의해 새로 넣을 노드가 "전"head 노드인 rev에 할당된다.
+- "rev.next = B"에 의해  새로 넣을 노드는 "전" 노드인 rev(rev = A 이전)를 가르킨다.
+
+다중 할당의 특성으로 인해 이런 방식으로 계산된다.
 
 ### 참조 대상 중복
 ```py
