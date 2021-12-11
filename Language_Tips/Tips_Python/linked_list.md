@@ -129,8 +129,6 @@ print(lkdlist)
 ```
 `lkdlist = lkdlist.next`이 문장은 다음 노드로 완전히 넘어가는 것이며, 주소만 바꿔주는 것이 아니다. 노드==주소 이라는 것을 잊으면 안된다.
 
-
-
 ## Reference
 > https://velog.io/@woga1999/파이썬으로-구현하는-링크드-리스트
 > https://daimhada.tistory.com/72

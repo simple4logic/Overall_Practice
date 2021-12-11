@@ -18,12 +18,6 @@ class Solution:
         while rev:
             print(rev.val)
             rev = rev.next
-'''
-rev <- slow //in first loop, rev is the head
-rev.next <- rev //in first loop, 
-slow <- slow.next
-
-'''
 
 #to test, you have to make to linked-list manually. 
 inp = [1,2,3,4] #inp = input as head
