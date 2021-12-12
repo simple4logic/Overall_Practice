@@ -8,42 +8,55 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def isPalindrome(self, head: ListNode) -> bool:
-        rev = None #define address of reverse string as null
-        slow = fast = head #set start point
+    def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
+        l1, l2 = list1, list2
+        node = ListNode()
 
-        while fast and fast.next: #when both are true
-            fast = fast.next.next
-            rev, rev.next, slow = slow, rev, slow.next
-            #making reverse linked list until the middle point
-            #put slow to rev. Then 'slow' moves to the next, and 'rev' moves to the before
-        if fast:
-            slow = slow.next #when odd length, move one more
+        while l1.next or l2.next: #until both are the false
+        #for i in range(30):
+            if (l1.val >= l2.val) or (not l1.next): #l1이 끝자락이면 이제 l2를 민다.
+                node = l2
+                print(node.val, "appended value of l2")
+                node = node.next
+                if(l2.next):
+                    l2 = l2.next
+            else:
+                node = l1
+                print(node.val, "appended value of l1")
+                node = node.next
+                if(l1.next):
+                    l1 = l1.next                
 
-        while rev and (rev.val==slow.val):
-            slow, rev = slow.next, rev.next
-        return not rev
-        '''
-        do it until rev reaches the end or not palindrome 
-        when reaches the end, rev is none. It means palindrome, so not rev == True 
-        when stops in the middle, it means not palindrome. so this time rev has value.
-        not rev == False
-        '''
+        while head:
+            print(head.val, "start printing")
+            head = head.next
+
+
+
+
 '''
-rev <- slow //in first loop, rev is the head
-rev.next <- rev //in first loop, 
-slow <- slow.next
+왠지 node를 하나씩 밀견서 그 value를 비교 시키고 작은쪽을 append 하면 될 것 같다.
+
+1 4 6
+1 5 7
+이렇게 있으면 리스트1의 1넣고(>=) 한칸밀고
+4와 1 비교시킨다음 리스트2의 1넣고 한칸밀고 이런식으로...
+
 
 '''
 
 #to test, you have to make to linked-list manually. 
-inp = [1,2,2,1] #inp = input as head
-node3 = ListNode(inp[3])
-node2 = ListNode(inp[2], node3)
-node1 = ListNode(inp[1], node2)
-head = ListNode(inp[0], node1)
+inp1 = [1,2,3]
+inp2 = [4,5,6]
+list1_3 = ListNode(inp1[2], None)
+list1_2 = ListNode(inp1[1], list1_3)
+list1 = ListNode(inp1[0], list1_2)
 
+list2_3 = ListNode(inp2[2], None)
+list2_2 = ListNode(inp2[1], list2_3)
+list2 = ListNode(inp2[0], list2_2)
 
 #for test
 a = Solution()
-a.isPalindrome(head)
+#list1 = [1,2,4], list2 = [1,3,4]
+a.mergeTwoLists(list1, list2)
