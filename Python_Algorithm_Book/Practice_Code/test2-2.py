@@ -36,6 +36,8 @@ class Solution:
                 head.next = l2
                 return head_node
         
+        #head_node = head
+                
         while l1 or l2: #until both are the false
             if (l1.val >= l2.val):
                 head.next = l2
