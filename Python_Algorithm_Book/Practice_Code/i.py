@@ -8,34 +8,23 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def isPalindrome(self, head: ListNode) -> bool:
-        if not head:
-            return True #to prevent the event that input is 0 node. "But" in this Q, node count can not be zero
-
-        ansl :list = []
-
-        node = head
-
-        while node is not None:
-            ansl.append(node.val)
-            node = node.next
-
-        while len(ansl)>1: #if len = 1, stop. Actually single letter left so true.// if len = 0, stop.
-            if ansl.pop(0) != ansl.pop():
-                return False
-        
-        return True
+    def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
+        if(not l1) or (l2 and l1.val > l2.val): # l1이 none일 때// 또는 // l2가 존재하고, l1이 l2보다 클 때 실행.
+            l1, l2 = l2, l1
+        if l1: #교체한 뒤에 l1이 존재하면, 다음 주소를  l1으로 할당 <- 이전 아웃풋인 l1
+            l1.next = self.mergeTwoLists(l1.next, l2)
+        return l1
 
 #to test, you have to make to linked-list manually. 
-inp = [1,2,2,1] #inp = input as head
-node3 = ListNode(inp[3])
-node2 = ListNode(inp[2], node3)
-node1 = ListNode(inp[1], node2)
-head = ListNode(inp[0], node1)
+inp1 = [-9,3]
+inp2 = [4,5]
 
+list1_2 = ListNode(inp1[1], None)
+list1 = ListNode(inp1[0], list1_2)
+
+list2_2 = ListNode(inp2[1], None)
+list2 = ListNode(inp2[0], list2_2)
 
 #for test
 a = Solution()
-a.isPalindrome(head)
-
-
+a.mergeTwoLists(list1, list2)
