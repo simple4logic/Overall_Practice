@@ -7,55 +7,19 @@ class ListNode:
         self.val = val
         self.next = next
 
+##연결 리스트별로 최소 하나 이상의 원소를 가짐
+
 class Solution:
-    def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
-        l1, l2 = list1, list2
-        head = None
-
-        #filter of empty cases
-        if not l1 and not l2: #둘다 empty인 경우
-            return head
-        if not l1: #l1가 empty인 경우
-            return l2
-        if not l2:
-            return l1
-
-        #start, init. Declare which to start
-        if (l1.val >= l2.val):
-            head = l2
-            head_node = head
-            l2 = l2.next
-            if(not l2): #filter of one letter case
-                head.next = l1
-                return head_node
-        else:
-            head = l1
-            head_node = head
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        ls1, ls2 = [], [] #define empty list
+        while l1:
+            ls1.append(l1.val)
             l1 = l1.next
-            if(not l1): #filter of one letter case
-                head.next = l2
-                return head_node
+        while l2:
+            ls2.append(l2.val)
+            l2 = l2.next
+        #finish conversion to the list
         
-        #head_node = head
-                
-        while l1 or l2: #until both are the false
-            if (l1.val >= l2.val):
-                head.next = l2
-                head = head.next
-                l2 = l2.next
-                if(not l2): #l2가 none이면 실행됨
-                    head.next = l1
-                    return head_node
-
-            else:
-                head.next = l1
-                head = head.next
-                l1 = l1.next
-                if(not l1): #l1가 none이면 실행됨
-                    head.next = l2
-                    return head_node
-
-        return head_node
 
 
 #to test, you have to make to linked-list manually. 
@@ -78,4 +42,4 @@ list2 = ListNode(inp2[0], list2_2)
 #for test
 a = Solution()
 #list1 = [1,2,4], list2 = [1,3,4]
-a.mergeTwoLists(list1, list2)
+a.addTwoNumbers(list1, list2)
