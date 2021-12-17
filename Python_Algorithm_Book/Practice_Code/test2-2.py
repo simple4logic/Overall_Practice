@@ -8,42 +8,33 @@ class ListNode:
         self.next = next
 
 class Solution:
-    #reversing linked-list
-    def reverseList(self, head: ListNode) -> ListNode:
-        node, prev = head, None
-
-        while node:
-            next, node.next = node.next, prev
-            prev, node = node, next
-        
-        return prev
-
-    #divert linked-list to list
-    def toList(self, node: ListNode) -> List:
-        list: List = []
-        while node:
-            list.append(node.val)
-            node = node.next
-
-        return list
-
-    # List to linked-list
-    def toReversedLinkedList(self, result: str) -> ListNode:
-        prev: ListNode = None
-        for r in result:
-            node = ListNode(r)
-            node.next = prev
-            prev = node
-        return node
-
-    #add to linked-list with the functions above
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        a = self.toList(self.reverseList(l1))
-        b = self.toList(self.reverseList(l2))
+        root = head = ListNode(0)
 
-        resultStr = int(''.join(str(e) for e in a) + int(''.join(str(e) for e in b)
-        
-        #return self.toReversedLinkedList(str(resultStr))
+        carry = 0
+        while l1 or l2 or carry: 
+            #각 자릿수가 모두 더해질때까지! 만약 자릿수가 같고 carry in이 존재하면 한번 더 루프 돌려서
+            #다음 자리까지 노드 하나 더 추가해줘야함. 즉 노드 개수 = 더 긴 리스트 길이 + 1
+
+            #sum 매번 초기화
+            sum = 0
+
+            #두 리스트의 "자릿수"를 더함, 존재하는 경우에만 더함. 자릿수가 다른 수를 더할 수도 있음.
+            if l1:
+                sum+=l1.val
+                l1 = l1.next
+            if l2:
+                sum+=l2.val
+                l2 = l2.next
+
+            #divmod = A//10, A%10, 즉 10으로 나눈 몫과 나머지를 리턴
+            carry, val = divmod(sum+carry, 10) #전 자리수에서 온 carry은 해봤자 1 or 0이다.
+            head.next = ListNode(val)
+            head = head.next
+
+        return root.next
+            
+
 
 #to test, you have to make to linked-list manually. 
 inp1 = [9,3]
