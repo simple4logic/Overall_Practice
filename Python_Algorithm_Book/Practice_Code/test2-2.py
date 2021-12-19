@@ -11,13 +11,12 @@ class Solution:
     def reverseBetween(self, head: ListNode, left: int, right: int) -> ListNode:
         
         #definition of the rev function
-        def rev(head: ListNode, length: int)-> ListNode, ListNode:
+        def rev(head: ListNode, length: int):
             rev = None
-            node = head
             for i in range(length-1):
-                rev, rev.next, node = node, rev, node.next
-            last_add = node.next
-            rev, rev.next = node, rev
+                rev, rev.next, head = head, rev, head.next
+            last_add = head.next
+            rev, rev.next = head, rev
             return rev, last_add
         
         #filtering single node-list
@@ -25,15 +24,21 @@ class Solution:
             return head
         
         #saving head node
-        head_node = head
+        #start is for saving "prevhead", not head
+        prevhead = start = ListNode(0, head)
 
-        for i in range(left-2):
-            head = head.next
+        for i in range(left-1):
+            prevhead = prevhead.next
 
-        head.next, lastadd = rev(head.next, right-left+1)
+        prevhead.next, lastadd = rev(prevhead.next, right-left+1)
 
-        while          
+        while prevhead.next:
+            prevhead = prevhead.next
 
+        #combine with last point
+        prevhead.next = lastadd
+
+        return start.next
 
 inp1= [1,2,3,4,5,6,7,8,9]
 def makeLinkedList(inp: List) -> ListNode:
@@ -50,7 +55,7 @@ link1 = makeLinkedList(inp1).next
 
 #for test
 a = Solution()
-head_node = a.reverseBetween(link1)
+head_node = a.reverseBetween(link1, 1, 2)
 while head_node:
     print(head_node.val)
     head_node = head_node.next
