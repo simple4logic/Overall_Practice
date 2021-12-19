@@ -8,30 +8,34 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def swapPairs(self, head: ListNode) -> ListNode:
-        node = head
-        if not node or not node.next: #when (0 or 1 node)
-           return node
+    def reverseBetween(self, head: ListNode, left: int, right: int) -> ListNode:
         
-        head_node = ListNode(0, node.next) #point second node
-        prev = ListNode()
-
-        while node and node.next: #노드가 하나면,첨부터 false이므로 루프 통과X
-            prev.next = node.next
-            temp = node
-            node = node.next
-            temp.next = node.next
-            node.next = temp
-            prev = temp
-            print(node.val, temp.val)
-            node = node.next.next
+        #definition of the rev function
+        def rev(head: ListNode, length: int)-> ListNode, ListNode:
+            rev = None
+            node = head
+            for i in range(length-1):
+                rev, rev.next, node = node, rev, node.next
+            last_add = node.next
+            rev, rev.next = node, rev
+            return rev, last_add
         
-        return head_node.next
-            
+        #filtering single node-list
+        if not head.next:
+            return head
+        
+        #saving head node
+        head_node = head
+
+        for i in range(left-2):
+            head = head.next
+
+        head.next, lastadd = rev(head.next, right-left+1)
+
+        while          
 
 
-#to test, you have to make to linked-list manually. 
-inp1= [1,2,3,4, 5,6,7,8,9]
+inp1= [1,2,3,4,5,6,7,8,9]
 def makeLinkedList(inp: List) -> ListNode:
     node = ListNode()
     head = node
@@ -46,7 +50,7 @@ link1 = makeLinkedList(inp1).next
 
 #for test
 a = Solution()
-head_node = a.swapPairs(link1)
+head_node = a.reverseBetween(link1)
 while head_node:
     print(head_node.val)
     head_node = head_node.next
