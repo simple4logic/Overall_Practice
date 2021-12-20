@@ -3,25 +3,16 @@ import re
 import collections
 
 class Solution:
-    def isValid(self, s: str) -> bool:
-        stack = []
-
-        #keys ) } ], values ( { [
-        table = {')':'(', '}':'{', ']':'['}
+    def removeDuplicateLetters(self, s: str) -> str:
+        for char in sorted(set(s)):
+            suffix = s[s.index(char):]
+            
+            #전체 집합과 접미사 집합이 일치할 경우 분리한다
+            if set(s) == set(suffix):
+                return char + self.removeDuplicateLetters()
+        return ''
         
-        for char in s:
-            if char not in table: #table "keys"
-                stack.append(char)
-
-            #if only once wrong, return false & if stack is empty
-            # when close parantheses appears first, IN TABLE but STACK IS EMPTY
-            elif not stack or stack.pop() != table[char]:
-                return False 
-
-        return len(stack) == 0 #check if the stack is empty
 
 a = Solution()
-if a.isValid("()"):
-    print("True")
-else:
-    print("False")
+s = "cbacdcbc"
+print(a.removeDuplicateLetters(s))
