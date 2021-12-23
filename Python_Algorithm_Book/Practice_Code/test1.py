@@ -8,26 +8,26 @@ import collections
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         T = temperatures
-        ans, stack = [0 for i in range(len(T))], [] #init ans with 0
+        ans, stack = [0] * len(T), [] #init ans with 0
 
-        for val in T:
-            cur_idx = T.index(val)
-            
-            if not stack: #스택에 없다면 append / 첫번째 원소 filetering
-                stack.append(val)
-                continue
-            
-            while stack and stack[-1] < val: #stack이 있고, 마지막 값보다 지금 값이 더 크면 반복
-                last_idx = T.index(stack.pop())
-                stack.append(val)
-                ans[last_idx] = cur_idx - last_idx
+        for i, val in enumerate(T):
+    
+            while stack and T[stack[-1]] < val: #stack이 있고, 마지막 값보다 지금 값이 더 크면 반복
+                last_idx = stack.pop()
+                ans[last_idx] = i - last_idx
 
-            print(stack, ans, cur_idx)
+            # index itself is stacked!!
+            stack.append(i)
 
         return ans  
         
-        
+'''
+문제점 = T.index(stack.pop())에서 만약 pop한 값이 동일하다면 index를 어디서 찾는가?
+>> sol : stack을 index로 해결!!
+'''
 
 a = Solution()
-t = [73,74,75,71,69,72,76,73]
+t = [89,62,70,58,47,47,46,76,100,70]
 print(a.dailyTemperatures(t))
+
+#ans [8,1,5,4,3,"2",1,1,0,0]
