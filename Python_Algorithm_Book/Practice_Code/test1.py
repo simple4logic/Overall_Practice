@@ -24,10 +24,11 @@ class Solution:
 '''
 문제점 = T.index(stack.pop())에서 만약 pop한 값이 동일하다면 index를 어디서 찾는가?
 >> sol : stack을 index로 해결!!
+value can not be unique, but index itself is always unique
 '''
 
 a = Solution()
-t = [89,62,70,58,47,47,46,76,100,70]
+t = [89,62,70,47,47,46,100,70]
 print(a.dailyTemperatures(t))
 
 #ans [8,1,5,4,3,"2",1,1,0,0]
