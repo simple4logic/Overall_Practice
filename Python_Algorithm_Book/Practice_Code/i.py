@@ -2,30 +2,28 @@ from typing import List
 import re
 import collections
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+class MyStack:
+    stack = collections.deque() #def with the type deque
 
-class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        node = head #the list to reverse
-        rev = None # the space that reversed list is saved
-        while node:
-            rev, rev.next, node = node, rev, node.next
-        return rev
+    def __init__(self):
+        
 
-#to test, you have to make to linked-list manually. 
-inp = [1, 3, 5, 9]
+    def push(self, x: int) -> None:
+        
 
-list4 = ListNode(inp[3], None)
-list3 = ListNode(inp[2], list4)
-list2 = ListNode(inp[1], list3)
-list1 = ListNode(inp[0], list2)
+    def pop(self) -> int:
+        
 
-#for test
-a = Solution()
-new_head = a.reverseList(list1)
+    def top(self) -> int:
+        
 
-while new_head:
-    print(new_head.val)
+    def empty(self) -> bool:
+        
+
+
+# Your MyStack object will be instantiated and called as such:
+# obj = MyStack()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.empty()
