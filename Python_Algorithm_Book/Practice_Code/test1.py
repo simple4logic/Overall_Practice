@@ -2,33 +2,37 @@ from typing import List
 import re
 import collections
 
-# t is between 30 ~ 70
-# T.index(element) returns index
+class MyQueue:
 
-class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        T = temperatures
-        ans, stack = [0] * len(T), [] #init ans with 0
+    def __init__(self):
+        self.input = []
+        self.output = []
 
-        for i, val in enumerate(T):
-    
-            while stack and T[stack[-1]] < val: #stack이 있고, 마지막 값보다 지금 값이 더 크면 반복
-                last_idx = stack.pop()
-                ans[last_idx] = i - last_idx
+    def push(self, x: int) -> None:
+        self.input.append(x)
 
-            # index itself is stacked!!
-            stack.append(i)
+    def pop(self) -> int:
+        self.peek()
+        return self.output.pop()
 
-        return ans  
+    def peek(self) -> int:
+        #output이 없으면 모두 재입력
+        if not self.output:
+            while self.input:
+                self.output.append(self.input.pop())
+        return self.output[-1]
         
-'''
-문제점 = T.index(stack.pop())에서 만약 pop한 값이 동일하다면 index를 어디서 찾는가?
->> sol : stack을 index로 해결!!
-value can not be unique, but index itself is always unique
-'''
+    def empty(self) -> bool:
+        return self.input == [] and self.output == []
 
-a = Solution()
-t = [89,62,70,47,47,46,100,70]
-print(a.dailyTemperatures(t))
 
-#ans [8,1,5,4,3,"2",1,1,0,0]
+obj = MyQueue()
+obj.push(1)
+print(obj.q)
+obj.push(2)
+print(obj.q)
+print(obj.peek())
+print(obj.q)
+obj.pop()
+print(obj.q)
+print(obj.empty())
