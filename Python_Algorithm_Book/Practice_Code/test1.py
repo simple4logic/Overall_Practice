@@ -2,37 +2,38 @@ from typing import List
 import re
 import collections
 
-class MyQueue:
+class MyCircularQueue:
 
-    def __init__(self):
-        self.input = []
-        self.output = []
-
-    def push(self, x: int) -> None:
-        self.input.append(x)
-
-    def pop(self) -> int:
-        self.peek()
-        return self.output.pop()
-
-    def peek(self) -> int:
-        #output이 없으면 모두 재입력
-        if not self.output:
-            while self.input:
-                self.output.append(self.input.pop())
-        return self.output[-1]
+    def __init__(self, k: int):
+        self.q = [None] * k
+        self.maxlen = k
+        self.p1 = 0
+        self.p2 = 0 
         
-    def empty(self) -> bool:
-        return self.input == [] and self.output == []
+    def enQueue(self, value: int) -> bool:
+        if self.q[self.p2] is None:
+            self.q[self.p2] = value
+            self.p2 = (self.p2 + 1) % self.maxlen
+            return True
+        else:
+            return False
 
+    def deQueue(self) -> bool:
+        if self.q[self.p1] is None:
+            return False
+        else:
+            self.q[self.p1] = None
+            self.p1 = (self.p1 + 1) % self.maxlen
+            return True
 
-obj = MyQueue()
-obj.push(1)
-print(obj.q)
-obj.push(2)
-print(obj.q)
-print(obj.peek())
-print(obj.q)
-obj.pop()
-print(obj.q)
-print(obj.empty())
+    def Front(self) -> int:
+        return -1 if self.q[self.p1] is None else self.q[self.p1]
+
+    def Rear(self) -> int:
+        return -1 if self.q[self.p2 - 1] is None else self.q[self.p2 - 1] #한칸 밀어놨으니까 리턴할때는 한칸 앞에거 리턴
+        
+    def isEmpty(self) -> bool:
+        return self.p1 == self.p2 and self.q[self.p1] is None #포인터 둘이 겹치고 그 칸이 none
+
+    def isFull(self) -> bool:
+        return self.p1 == self.p2 and self.q[self.p1] is not None #포인터 둘이 겹치고 그 칸이 none이 아님
