@@ -3,27 +3,38 @@ import re
 import collections
 import heapq
 
-class Node():
-    def __init__(self, val = 0, next = None):
-        self.val = val
-        self.next = next
+class Node:
+    def __init__(self, key: int, value: int):
+        self.key = key
+        self.value = value
 
-class Solution():
-    def mergeLists(self, lists: List[Node]) -> Node:
-        root = result = Node(None) #save result's address at root
-        heap = []
+class MyHashMap:
 
-        for i in range(len(lists)):
-            if lists[i]:
-                headq.headpush(heap, (lists[i].val), i, lists[i])
+    def __init__(self):
+        self.l = []
         
-        while heap:
-            node = headq.headpop(heap)
-            idx = node[1]
-            result.next = node[2]
 
-            result = result.next
-            if result.next:
-                headq.headpush(heap, (result.next.val, idx, result.next))
+    def put(self, key: int, value: int) -> None:
+        New_Node = Node(key, value)
+        self.l.append(New_Node)        
 
-        return root.next
+    def get(self, key: int) -> int:
+        #if key in [x.key for x in self.l]: #when 1 is in [(1, a), (2, c), (3, f), (4, b), (5, r)]
+        for nodes in self.l:
+            if
+
+        else:
+            return -1
+        
+
+    def remove(self, key: int) -> None:
+        
+
+
+# Your MyHashMap object will be instantiated and called as such:
+a = MyHashMap()
+#obj.put(key,value)
+a.put(1, 1)
+print(a)
+#param_2 = obj.get(key)
+#obj.remove(key)
