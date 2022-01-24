@@ -64,7 +64,7 @@ class MyHashMap:
             if p.key == key:
                 prev.next = p.next
                 return
-            prev, p = p, p.next        
+            prev, p = p, p.next
 
 
 # Your MyHashMap object will be instantiated and called as such:
