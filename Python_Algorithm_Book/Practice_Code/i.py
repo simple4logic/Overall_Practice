@@ -4,10 +4,29 @@ import collections
 import heapq
 
 class Solution:
-    def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        jewlist, stlist = [jewels.split()], [stones.split()]
-        counter = collections.Counter(stlist) #key : value, key가 알파벳, value가 개수
-        ans = 0
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        def expand(left: int, right : int) -> str:
+            temp = set()
+            
+            while left>=0 and right<len(s) and (s[left] not in temp) and (s[right] not in temp):
+                temp.add(s[left])
+                temp.add(s[right])
+                left -= 1
+                right +=1  
+            return s[left + 1:right]
 
-        for x in jewlist:
-            if counter[x]
+        result = ''
+        for i in range(len(s) - 1):
+            result = max(result, expand(i, i+1), expand(i, i), key=len) #i, i+1 -> 짝수 case // i,i -> 홀수 case
+
+        return len(result)
+
+
+
+'''
+sliding window로 풀어보기
+1칸으로 시작해서 양옆으로 2칸씩 확장
+2칸으로 시작해서 양옆으로 2칸씩 확장
+중복이 검출 될 시에 현재 maxlen에 저장하고 
+다음 loop(start point)로 넘어가기
+'''
