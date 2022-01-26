@@ -2,60 +2,41 @@ from typing import List
 import re
 import collections
 
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from typing import List
+import re
+import collections
+import heapq
 
 class Solution:
-    def reverseBetween(self, head: ListNode, left: int, right: int) -> ListNode:
-        
-        #definition of the rev function
-        def rev(head: ListNode, length: int):
-            rev = None
-            for i in range(length-1):
-                rev, rev.next, head = head, rev, head.next
-            last_add = head.next
-            rev, rev.next = head, rev
-            return rev, last_add
-        
-        #filtering single node-list
-        if not head.next:
-            return head
-        
-        #saving head node
-        #start is for saving "prevhead", not head
-        prevhead = start = ListNode(0, head)
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        freq = {}
+        cnt = 0
 
-        for i in range(left-1):
-            prevhead = prevhead.next
+        #substitute counter module
+        for a in list(stones):
+            if a not in freq:
+                freq[a] = 1 #append new one
+            else:
+                freq[a] += 1
 
-        prevhead.next, lastadd = rev(prevhead.next, right-left+1)
+        for b in list(jewels):
+            num = freq[b]
+            if num != 0:
+                cnt += num
 
-        while prevhead.next:
-            prevhead = prevhead.next
+        return cnt
 
-        #combine with last point
-        prevhead.next = lastadd
 
-        return start.next
+# word = input()
+# print(word)
+# counter = collections.Counter(word)
+# print(counter)
+# print(counter['x'])
 
-inp1= [1,2,3,4,5,6,7,8,9]
-def makeLinkedList(inp: List) -> ListNode:
-    node = ListNode()
-    head = node
-    for val in inp:
-        new_node = ListNode(val)
-        new_node.next = node.next
-        node.next = new_node
-        node = node.next
-    return head
-
-link1 = makeLinkedList(inp1).next
-
-#for test
 a = Solution()
-head_node = a.reverseBetween(link1, 1, 2)
-while head_node:
-    print(head_node.val)
-    head_node = head_node.next
+J = "aA"
+S = "aAAbbbb"
+A = a.numJewelsInStones(J, S)
+print(A)
+
+
