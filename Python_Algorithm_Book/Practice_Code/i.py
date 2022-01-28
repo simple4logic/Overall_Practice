@@ -9,18 +9,29 @@ class Solution:
             temp = set()
             
             while left>=0 and right<len(s) and (s[left] not in temp) and (s[right] not in temp):
+                if (right != left) and (s[right] == s[left]):
+                    break
                 temp.add(s[left])
                 temp.add(s[right])
                 left -= 1
                 right +=1  
+            #print("before exit", temp)
+            #print("this is length", len(s[left + 1:right]))
             return s[left + 1:right]
 
         result = ''
-        for i in range(len(s) - 1):
+        for i in range(len(s)):
+            #print("loop", i)
             result = max(result, expand(i, i+1), expand(i, i), key=len) #i, i+1 -> 짝수 case // i,i -> 홀수 case
 
         return len(result)
 
+
+a = Solution()
+# s = "abcabcbb"
+s = 'a'
+ans = a.lengthOfLongestSubstring(s)
+print(ans)
 
 
 '''
