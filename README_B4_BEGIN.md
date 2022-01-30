@@ -28,8 +28,10 @@ set, map(=dictionary) 라이브러리에 관한 tips 작성!
 와 c++에도 파이썬 뺨치는 라이브러리가 있구나...!
 
 ## 8.
-q31 리트코드에서 긁어온 풀이 이해하고 끝내기
-book p304
+q31 마저 완성하기
+book p309 
+
++ 파이썬 다운 풀이 추가하기
 
 ## 9.
 https://velog.io/@chappi/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-5%EC%9D%BC%EC%B0%A8-Onlogn-%EC%A0%95%EB%A0%AC-%ED%9E%99%EA%B3%BC-%ED%9E%99%EC%A0%95%EB%A0%AC-%EC%B5%9C%EB%8C%80%ED%9E%99-%EC%B5%9C%EC%86%8C%ED%9E%99-2%EB%B6%80
