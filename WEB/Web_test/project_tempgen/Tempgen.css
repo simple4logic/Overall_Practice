@@ -4,3 +4,16 @@
     justify-content: center;
     align-items: center;
 }
+
+.tempinput {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid black;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
