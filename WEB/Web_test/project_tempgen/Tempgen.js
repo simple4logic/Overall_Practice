@@ -8,14 +8,14 @@ function printrand() {
     return;
   }
 
-  var roomname = ["경비1-", "경비2-", "하역1-", "하역2-", "본 부-", "장비정비-", "정리1-", "정리2-"];
+  var roomname = ["경비1-", "경비2-", "정리1-", "정리2-", "하역1-", "하역2-", "본부-", "장비정비-"];
   
-  for(var i = 1 ; i < 6 ; i++){
-    temp = Math.random() * (max - min);
-    ans = Math.floor(temp * 10) / 10 + min;
-    objectid = "경비1-".concat(i);
-    document.getElementById(objectid).innerText = ans;
+  for(var j = 0; j < 8 ; j++){
+    for(var i = 1 ; i < 6 ; i++){
+      temp = Math.random() * (max - min);
+      ans = Math.floor(temp * 10) / 10 + min;
+      objectid = ''.concat(roomname[j],i);
+      document.getElementById(objectid).innerText = ans;
+    }
   }
-
 }
-    
