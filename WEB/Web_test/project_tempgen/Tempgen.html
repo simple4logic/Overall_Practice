@@ -11,8 +11,23 @@
     </h1>
 
     <div class = "center">
-      <input id = "mininput" type = "number" name = "min", placeholder="최소 온도"/> &nbsp &nbsp
-      <input id = "maxinput" type = "number" name = "max", placeholder="최대 온도"/>
+      <!--button for min val-->
+      <input 
+      id = "mininput" 
+      type = "number"
+      name = "min"
+      min = "0"
+      placeholder="최소 온도"
+      oninput='handleOnInput(this, 3)'/> &nbsp &nbsp
+      
+      <!--button for max val-->
+      <input 
+      id = "maxinput" 
+      type = "number" 
+      name = "max"
+      min = "0"
+      placeholder="최대 온도"
+      oninput='handleOnInput(this, 3)'/>
     </div>
 
     <div class = "center notice">
@@ -36,17 +51,17 @@
     <table class="tg">
       <thead>
         <tr>
-          <th class="tg-0lax"></th>
-          <th class="tg-baqh">22:00</th>
-          <th class="tg-baqh">00:00</th>
-          <th class="tg-baqh">02:00</th>
-          <th class="tg-baqh">04:00</th>
-          <th class="tg-baqh">06:00</th>
+          <th class="tg-0lax">분 류</th>
+          <th class="tg-0lax">22:00</th>
+          <th class="tg-0lax">00:00</th>
+          <th class="tg-0lax">02:00</th>
+          <th class="tg-0lax">04:00</th>
+          <th class="tg-0lax">06:00</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="tg-baqh">경비 1</td>
+          <td class="tg-0lax">경비 1</td>
           <td class="tg-0lax" id = "경비1-1"></td>
           <td class="tg-0lax" id = "경비1-2"></td>
           <td class="tg-0lax" id = "경비1-3"></td>
@@ -54,7 +69,7 @@
           <td class="tg-0lax" id = "경비1-5"></td>
         </tr>
         <tr>
-          <td class="tg-baqh">경비 2</td>
+          <td class="tg-0lax">경비 2</td>
           <td class="tg-0lax" id = "경비2-1"></td>
           <td class="tg-0lax" id = "경비2-2"></td>
           <td class="tg-0lax" id = "경비2-3"></td>
@@ -62,7 +77,7 @@
           <td class="tg-0lax" id = "경비2-5"></td>
         </tr>
         <tr>
-          <td class="tg-baqh">정리 1</td>
+          <td class="tg-0lax">정리 1</td>
           <td class="tg-0lax" id = "정리1-1"></td>
           <td class="tg-0lax" id = "정리1-2"></td>
           <td class="tg-0lax" id = "정리1-3"></td>
@@ -70,7 +85,7 @@
           <td class="tg-0lax" id = "정리1-5"></td>
         </tr>
         <tr>
-          <td class="tg-baqh">정리 2</td>
+          <td class="tg-0lax">정리 2</td>
           <td class="tg-0lax" id = "정리2-1"></td>
           <td class="tg-0lax" id = "정리2-2"></td>
           <td class="tg-0lax" id = "정리2-3"></td>
@@ -78,7 +93,7 @@
           <td class="tg-0lax" id = "정리2-5"></td>
         </tr>
         <tr>
-          <td class="tg-baqh">하역 1</td>
+          <td class="tg-0lax">하역 1</td>
           <td class="tg-0lax" id = "하역1-1"></td>
           <td class="tg-0lax" id = "하역1-2"></td>
           <td class="tg-0lax" id = "하역1-3"></td>
@@ -86,7 +101,7 @@
           <td class="tg-0lax" id = "하역1-5"></td>
         </tr>
         <tr>
-          <td class="tg-baqh">하역 2</td>
+          <td class="tg-0lax">하역 2</td>
           <td class="tg-0lax" id = "하역2-1"></td>
           <td class="tg-0lax" id = "하역2-2"></td>
           <td class="tg-0lax" id = "하역2-3"></td>
@@ -94,7 +109,7 @@
           <td class="tg-0lax" id = "하역2-5"></td>
         </tr>
         <tr>
-          <td class="tg-baqh">본 부</td>
+          <td class="tg-0lax">본 부</td>
           <td class="tg-0lax" id = "본부-1"></td>
           <td class="tg-0lax" id = "본부-2"></td>
           <td class="tg-0lax" id = "본부-3"></td>
@@ -102,7 +117,7 @@
           <td class="tg-0lax" id = "본부-5"></td>
         </tr>
         <tr>
-          <td class="tg-baqh">장비정비</td>
+          <td class="tg-0lax">장비정비</td>
           <td class="tg-0lax" id = "장비정비-1"></td>
           <td class="tg-0lax" id = "장비정비-2"></td>
           <td class="tg-0lax" id = "장비정비-3"></td>
