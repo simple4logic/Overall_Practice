@@ -38,6 +38,12 @@
     font-size: 10px;
 }
 
+.notice {
+    font-size: 15px;
+    color: silver;
+    font-style: italic;
+}
+
 /*---------------style for the table----------------*/
 
 .tg  {

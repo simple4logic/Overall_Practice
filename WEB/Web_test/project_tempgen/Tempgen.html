@@ -15,15 +15,21 @@
       <input id = "maxinput" type = "number" name = "max", placeholder="최대 온도"/>
     </div>
 
-    <br>
+    <div class = "center notice">
+      <p> (*최소 <= 출력값 < 최대) </p>
+    </div>
 
     <div class = "center">
       <input id = "button" type = "button" value = "generate" onclick = "printrand()"/>
     </div>
 
+    <!-- 임시 생성
     <div class = "center">
       <p id = "result"></p>
     </div>
+    -->
+
+    <br>
 
     <center>
 
@@ -41,67 +47,67 @@
       <tbody>
         <tr>
           <td class="tg-baqh">경비 1</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax" id = "경비1-1"></td>
+          <td class="tg-0lax" id = "경비1-2"></td>
+          <td class="tg-0lax" id = "경비1-3"></td>
+          <td class="tg-0lax" id = "경비1-4"></td>
+          <td class="tg-0lax" id = "경비1-5"></td>
         </tr>
         <tr>
           <td class="tg-baqh">경비 2</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax" id = "경비2-1"></td>
+          <td class="tg-0lax" id = "경비2-2"></td>
+          <td class="tg-0lax" id = "경비2-3"></td>
+          <td class="tg-0lax" id = "경비2-4"></td>
+          <td class="tg-0lax" id = "경비2-5"></td>
         </tr>
         <tr>
           <td class="tg-baqh">정리 1</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax" id = "정리1-1"></td>
+          <td class="tg-0lax" id = "정리1-2"></td>
+          <td class="tg-0lax" id = "정리1-3"></td>
+          <td class="tg-0lax" id = "정리1-4"></td>
+          <td class="tg-0lax" id = "정리1-5"></td>
         </tr>
         <tr>
           <td class="tg-baqh">정리 2</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax" id = "정리2-1"></td>
+          <td class="tg-0lax" id = "정리2-1"></td>
+          <td class="tg-0lax" id = "정리2-3"></td>
+          <td class="tg-0lax" id = "정리2-4"></td>
+          <td class="tg-0lax" id = "정리2-5"></td>
         </tr>
         <tr>
           <td class="tg-baqh">하역 1</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax" id = "하역1-1"></td>
+          <td class="tg-0lax" id = "하역1-2"></td>
+          <td class="tg-0lax" id = "하역1-3"></td>
+          <td class="tg-0lax" id = "하역1-4"></td>
+          <td class="tg-0lax" id = "하역1-5"></td>
         </tr>
         <tr>
           <td class="tg-baqh">하역 2</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax" id = "하역2-1"></td>
+          <td class="tg-0lax" id = "하역2-2"></td>
+          <td class="tg-0lax" id = "하역2-3"></td>
+          <td class="tg-0lax" id = "하역2-4"></td>
+          <td class="tg-0lax" id = "하역2-5"></td>
         </tr>
         <tr>
           <td class="tg-baqh">본 부</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax" id = "본 부-1"></td>
+          <td class="tg-0lax" id = "본 부-2"></td>
+          <td class="tg-0lax" id = "본 부-3"></td>
+          <td class="tg-0lax" id = "본 부-4"></td>
+          <td class="tg-0lax" id = "본 부-5"></td>
         </tr>
         <tr>
           <td class="tg-baqh">장비정비</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax" id = "장비정비-1"></td>
+          <td class="tg-0lax" id = "장비정비-2"></td>
+          <td class="tg-0lax" id = "장비정비-3"></td>
+          <td class="tg-0lax" id = "장비정비-4"></td>
+          <td class="tg-0lax" id = "장비정비-5"></td>
         </tr>
       </tbody>
       </table>
