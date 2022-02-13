@@ -5,7 +5,14 @@
     align-items: center;
 }
 
-.tempinput {
+#mininput {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+}
+
+#maxinput {
     border-top: none;
     border-left: none;
     border-right: none;
