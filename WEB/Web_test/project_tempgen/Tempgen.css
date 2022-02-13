@@ -9,11 +9,24 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid black;
 }
 
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#button {
+    color: black;
+    background: none;
+    border-radius: 2cm;
+}
+
+.madeby {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
 }
