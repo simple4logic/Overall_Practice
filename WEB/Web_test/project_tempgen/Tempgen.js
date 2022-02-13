@@ -8,7 +8,9 @@ function printrand() {
     return;
   }
 
-  ans = Math.floor(Math.random() * (max - min + 1)) + min;
+  temp = Math.random() * (max - min + 1)
+
+  ans = Math.round(temp * 10) / 10 + min;
   
   document.getElementById("result").innerText = ans;
   }
