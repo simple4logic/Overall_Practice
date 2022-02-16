@@ -549,9 +549,9 @@ function randomInt(...args) {
     }
 
     showScore(state) {
-      ctx.fillText(`현재 점수: ${state.level}`, 30, uiOffsetY / 2 + 7);
+      ctx.fillText(`현재 점수: ${state.level * 10}`, 30, uiOffsetY / 2 + 7);
       ctx.fillText(
-        `최고 점수: ${state.bestLevel}`,
+        `최고 점수: ${state.bestLevel * 10}`,
         width - 150,
         uiOffsetY / 2 + 7
       );
