@@ -86,7 +86,7 @@ function randomInt(...args) {
 
     mag() {
       return Math.sqrt(this.x * this.x + this.y * this.y);
-    }
+    } //return magnitude of the vector
 
     get() {
       return new Vector(this.x, this.y);
