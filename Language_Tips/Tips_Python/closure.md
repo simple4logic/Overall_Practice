@@ -24,3 +24,6 @@ return :
 
 위 코드가 어떻게 동작하는지 살펴보자.
 
+ref
+> https://dojang.io/mod/page/view.php?id=2366
+> https://dojang.io/mod/page/view.php?id=2368
