@@ -31,3 +31,14 @@ set, map(=dictionary) 라이브러리에 관한 tips 작성!
 https://velog.io/@chappi/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-5%EC%9D%BC%EC%B0%A8-Onlogn-%EC%A0%95%EB%A0%AC-%ED%9E%99%EA%B3%BC-%ED%9E%99%EC%A0%95%EB%A0%AC-%EC%B5%9C%EB%8C%80%ED%9E%99-%EC%B5%9C%EC%86%8C%ED%9E%99-2%EB%B6%80
 
 힙 정렬은 무엇이고 어떻게 쓰이고 어떤 유용함을 가진지에 대해 완벽히 정리해놓은 게시글. 꼭꼭 참고해서 나도 정리한 글을 하나 만들어 놓을것!! 혹은 요약 복사라도 제대로 하던가.
+
+## 9.
+데코레이터 개념이랑 예제 넣기
+
+>https://dojang.io/mod/page/view.php?id=2427
+
+클로저
+>https://dojang.io/mod/page/view.php?id=2366
+>https://dojang.io/mod/page/view.php?id=2368
+
+개빡치네 데코레이터랑 클로저 만든거 그냥 사라졌네;;
