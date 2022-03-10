@@ -46,4 +46,6 @@ https://velog.io/@chappi/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-5%EC%9D%BC%EC%B0%A
 
 따봉 버튼 만들고 있었음
 
-npm start 하려면 해당 dir로 들어가서 명령어 치면 됨.
+npm start 하려면 
+1. 해당 dir로 들어가기
+2. npm install로 설치하면 됨.
