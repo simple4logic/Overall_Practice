@@ -5,9 +5,24 @@ import heapq
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        return list(zip(*collections.Counter(nums).most_common(k)))[0]
+        freqs = collections.Counter(nums)
+        freqs_heap = []
+        #insert to heap as negative
 
+        for f in freqs:
+            #f is the key, freqs[f] is the value(frequency)
+            #insert it SWAPPED
+            heapq.heappush(freqs_heap, (-freqs[f], f))
 
+        topk = list()
+
+        for _ in range(k):
+            #pop out k-times
+            #min-heap, so pop from the smallest value
+            topk.append(heapq.heappop(freqs_heap)[1])
+
+        return topk
+        
 a = Solution()
 s = [1,1,2,2,2,2,3,5,5,5]
 ans = a.topKFrequent(s,2)
