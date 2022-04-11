@@ -1,5 +1,6 @@
 # zip 함수에 대하여
 
+*Reference - Python Algorithm Interview Q31 sol #2
 
 ## 역할
 zip함수는 "2개 이상의 시퀀스를 짧은 길이를 기준으로 일대일 대응하는 새로운 튜플 시퀀스를 만드는 역할을 한다" 고 정의되어 있다. 다시 말해서, 튜플대 튜플, 리스트대 리스트 등을 매칭시켜준다는 것이다.
@@ -55,3 +56,6 @@ TypeError : 'tuple' object does not support item assignment
 ```
 
 이 코드를 보면 zip의 결과물로 생성된 튜플 객체에는 아이템 할당이 불가하다는 것을 볼 수 있다.
+
+## 참조
+Python Algorithm Interview 책 Q31번의 맨 마지막 풀이를 확인하면 zip과 asterisk를 이용해서 깔끔하게 푸는 풀이가 등장한다.
