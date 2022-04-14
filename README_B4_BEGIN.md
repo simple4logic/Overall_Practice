@@ -37,15 +37,3 @@ https://velog.io/@chappi/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-5%EC%9D%BC%EC%B0%A
 클로저
 >https://dojang.io/mod/page/view.php?id=2366
 >https://dojang.io/mod/page/view.php?id=2368
-
-# 10.
-
-리액트 강의
-
-> https://www.youtube.com/watch?v=Br9fKSIeAok&list=PLfLgtT94nNq1e6tr4sm2eH6ZZC2jcqGOy&index=5&ab_channel=%EC%BD%94%EB%94%A9%EC%95%A0%ED%94%8C
-
-따봉 버튼 만들고 있었음
-
-npm start 하려면 
-1. 해당 dir로 들어가기
-2. npm install로 설치하면 됨.
