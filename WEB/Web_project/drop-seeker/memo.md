@@ -1,6 +1,8 @@
 # 참고 프로젝트
 > https://github.com/16Yongjin/hufs-drop-ranking-react/tree/main/src
 
+> https://yongj.in/development/hufs-drop-ranking-21-1/
+
 ## 
 
 일단 최소한의 기능 구현
