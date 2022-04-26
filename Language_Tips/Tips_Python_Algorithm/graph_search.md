@@ -17,6 +17,7 @@
 ### __특징__
 - 한 방향으로 "깊게" 탐색하는 것
 - 주로 스택(Stack)을 이용하여 구현
+- 재귀로도 구현 가능하며 재귀로 구현 시 더 간단히 구현 가능
 - 사용하는 경우 : 모든 노드를 방문하려 할 때 선택
 - 후술할 너비 우선 탐색(BFS)에 비해 단순함
 - 단순 검색 속도 자체는 BFS에 비해 느림
@@ -26,7 +27,7 @@
 ### __DFS의 진행 과정__
 ![image](https://user-images.githubusercontent.com/68508521/165319337-3b977b0f-c670-4f0f-92a3-3e68db057cca.png)
 
-### __DFS 수도코드__
+### __DFS 수도코드__ (재귀)
 ```md
 DFS(G, v)
     label v as discovered
@@ -35,6 +36,18 @@ DFS(G, v)
             recursively call DFS(G, w)
 ```
 
+### __DFS 수도코드__ (스택)
+```md
+DFS_iterative(G, v)
+    let S be a stack
+    S.push(v)
+    while S is not empty do
+        v = S.pop()
+        if v is not labeled as discovered then
+            label v as discovered
+            for all edges from v to w in G.adjacentEdges(v) do 
+                S.push(w)
+```
 
 ## 2. 너비 우선 탐색(BFS)
 
@@ -51,10 +64,28 @@ ex 지구 상의 모든 친구 관계를 그래프로 표현한 후 사람 A와 
 *너비 우선 탐색의 경우 A와 가까운 관계부터 탐색해서 소요 시간을 줄일 수 있음
 - BFS가 DFS보다 좀 더 복잡함
 
+### __BFS의 진행 과정__
+![image](https://user-images.githubusercontent.com/68508521/165323746-0aa493d4-87bf-41da-844b-3bae167591e8.png)
 
-
+### __BFS 수도코드__
+```md
+BFS(G, start_v)
+    let Q be a queue
+    label start_v as discovered
+    Q.enqueue(start_v)
+    while Q is not empty do
+        v := Q.dequeue()
+        if v is the goal then
+            return v
+        for all edges from v to w in G.adjacentEdges(v) do
+            if w is not labeled as discovered then
+                label w as discovered
+                w.parent := v
+                Q.enqueue(w)
+```
 
 ## 참고
 
 > https://gmlwjd9405.github.io/2018/08/14/algorithm-dfs.html
 
+> https://yoongrammer.tistory.com/85
