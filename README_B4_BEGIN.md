@@ -37,3 +37,6 @@ https://velog.io/@chappi/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-5%EC%9D%BC%EC%B0%A
 클로저
 >https://dojang.io/mod/page/view.php?id=2366
 >https://dojang.io/mod/page/view.php?id=2368
+
+## 10.
+마지막으로 dfs 와 bfs 알고리즘 정리하고 있었음
