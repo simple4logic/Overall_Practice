@@ -3,37 +3,25 @@ import re
 import collections
 import heapq
 
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        freqs = collections.Counter(nums)
-        freqs_heap = []
-        #insert to heap as negative
 
-        for f in freqs:
-            #f is the key, freqs[f] is the value(frequency)
-            #insert it SWAPPED
-            heapq.heappush(freqs_heap, (-freqs[f], f))
+graph={
+    1:[2,3,4],
+    2:[5],
+    3:[5],
+    4:[],
+    5:[6,7],
+    6:[],
+    7:[3]
+}
 
-        topk = list()
+def recursive_dfs(v, discovered=[]):
+    discovered.append(v)
+    for w in graph[v]:
+        if w not in discovered:
+            discovered = recursive_dfs(w, discovered)
+    return discovered
 
-        for _ in range(k):
-            #pop out k-times
-            #min-heap, so pop from the smallest value
-            topk.append(heapq.heappop(freqs_heap)[1])
 
-        return topk
-        
-a = Solution()
-s = [1,1,2,2,2,2,3,5,5,5]
-ans = a.topKFrequent(s,2)
+ans = recursive_dfs(1)
+
 print(ans)
-
-'''
-1111 222 33
-
-1: 4개 , 2 : 3개, 3: 2개
-1, 2, 3 (key)
-개수(value)
-
-상위 k번!!
-'''
