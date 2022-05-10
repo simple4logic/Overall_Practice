@@ -1,14 +1,7 @@
-from typing import List
-import re
-import collections
+def add(i, j):
+    return i+j
 
-from typing import List
-import re
-import collections
-import heapq
-
-date_info = {'year':'2020', 'month':'01', 'day':'7'}
-new_info = {**date_info}
-print(new_info)
+for tuples in [(1,1), (2,2)]:
+    print(add(*tuples))
 
 
