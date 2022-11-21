@@ -1,28 +1,48 @@
 from typing import List
 
+'''
+메모 1. 파이썬에서 tmplist = A(which type is list) 처럼 할당할 경우 아예 A 리스트에 대한 참조가 추가되기 때문에 tmplist에서
+수정이 가해질 경우 A에서도 실제로 수정이 가해진다. 따라서 tmplist = A[:] 처럼 해야지 그냥 list의 모든 element들이 복사되게 된다.
+이 점을 꼭 주의할 것!! 
+'''
+
 class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
-        sero = len(grid)
-        garo = len(grid[0])
-        discovered = [] #탐색 완료된 그리드 상의 좌표
-        nums = 0
-    
-        for i in range(sero): #세로 길이
-            for j in range(garo): #가로 길이
-                if grid[i][j] == "0" or (i,j) in discovered:
-                    continue
-                else: 
-                    iteration(i,j)
-                    nums += 1
-        return nums
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        Ans: List[List[int]] = []
+
+        def minus(list, int):
+            templist = list[:]
+            templist.remove(int)
+            return templist
+
+        # currentlist = 내가 현재 쌓아나가고 있는 list, leftlist = 빠져나가고 있는 list
+        def recursion(_leftlist: List, _currentlist: List):
+            # 직접 참조를 막기 위해 복사만 함
+            leftlist = _leftlist[:]
+            currentlist = _currentlist[:]
+
+            if(len(leftlist) == 0):
+                print("ans appended")
+                Ans.append(currentlist)
+                return
+
+            for N in leftlist:
+                print("this is N", N)
+                print("left list before this loop", leftlist)
+                recursion(minus(leftlist,N), currentlist+[N])
+            
+        if(nums):
+            recursion(nums, [])
+
+        print(Ans)
+        return Ans
 
 
-def recursive(i: int, j: int):
-    discovered.append((i,j))
-        for tuples in [(i-1, j), (i+1, j), (i, j-1), (i, j+1)]:
-            if tuples[0] >= sero or tuples[0] < 0 or tuples[1] >= garo or tuples[1] < 0:
-                continue
-            if grid[tuples[0]][tuples[1]] == "0":
-                continue
-            self.recursive(tuples)
-    return
+        
+
+
+a = Solution()
+
+b = [1, 2, 3]
+
+a.permute(b)
