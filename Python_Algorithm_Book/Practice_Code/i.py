@@ -1,44 +1,47 @@
 from typing import List
-
-'''
-메모 1. 파이썬에서 tmplist = A(which type is list) 처럼 할당할 경우 아예 A 리스트에 대한 참조가 추가되기 때문에 tmplist에서
-수정이 가해질 경우 A에서도 실제로 수정이 가해진다. 따라서 tmplist = A[:] 처럼 해야지 그냥 list의 모든 element들이 복사되게 된다.
-이 점을 꼭 주의할 것!! 
-'''
+import collections
 
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        Ans: List[List[int]] = []
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        ans = []
+        graph = collections.defaultdict(list)
 
-        # currentlist = 내가 현재 쌓아나가고 있는 list, leftlist = 빠져나가고 있는 list
-        def recursion(_leftlist: List, _currentlist: List):
-            # 직접 참조를 막기 위해 복사만 함
-            leftlist = _leftlist[:]
-            currentlist = _currentlist[:]
+        for a, b in sorted(tickets):
+            graph[a].append(b)
 
-            if(len(leftlist) == 0):
-                print("ans appended")
-                Ans.append(currentlist)
+        # print(graph)
+        
+        def dfs(startfrom: str, path):
+            if ans:
+                return
+            # print("this is ans", path)
+            # print("this is graph", graph)
+
+            if len(path) > len(tickets):
+                print("ans returned", path)
+                ans.append(path)
                 return
 
-            for N in leftlist:
-                print("this is N", N)
-                print("left list before this loop", leftlist)
-                leftlist.remove(N)
-                #currentlist.append(N)
-                recursion(leftlist, currentlist+[N])
-            
+            # print("graph(startfrom) is", graph[startfrom])
+            for N in graph[startfrom]:
+                # print("this is turn of N = ", N)
+                graph[startfrom].remove(N)
+                dfs(N, path+[N])
+                # print("after path", path)
+                graph[startfrom].insert(0, N)
 
-        recursion(nums, [])
-        print(Ans)
-        return Ans
-
-
-        
+        start = "A"
+        dfs(start, [start])
+        # print(ans)
+        return ans[0]
 
 
 a = Solution()
 
-b = [1, 2, 3]
+b1 = [["A", "B"], ["B", "E"], ["D", "E"], ["B", "D"], ["E", "B"]]
+b2 = [["A", "B"], ["B", "F"], ["B", "X"], ["X", "B"]]
+b3 = [["J", "S"], ["J", "A"], ["S", "A"], ["A", "J"], ["A", "S"]]
 
-a.permute(b)
+a.findItinerary(b2)
+
+
