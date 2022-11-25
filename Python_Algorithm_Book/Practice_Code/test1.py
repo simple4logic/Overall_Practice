@@ -8,16 +8,14 @@ class Solution:
         for a, b in sorted(tickets):
             graph[a].append(b)
 
-        route = []
+        route, stack = [], ["JFK"]
 
-        def dfs(a):
-            while graph[a]:
-                dfs(graph[a].pop(0))
-            route.append(a)
+        while stack:
+            while graph[stack[-1]]:
+                stack.append(graph[stack[-1]].pop(0))
+            route.append(stack.pop())
 
-        dfs('A')
-
-        print(route[::-1])
+        return route[::-1]
 
 
 a = Solution()
