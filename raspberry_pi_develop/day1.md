@@ -1,7 +1,12 @@
-# 라즈베리파이 개발 일지 day 1
+# 라즈베리파이 vscode-server 개발기 #1
 
 ## 0. 개요
 아이패드가 가벼워서 자주 밖에 들고 다니는데, 코딩을 하고 싶어도 github이랑 자유자재로 동기화 되면서도 깔끔한 툴이 없어서 고민하고 있던 차에 vscode-server에 대해 알게 됐다. 근데 AWS로 계속 서버를 돌리기에는 아무리 개인 용도라서 비용이 거의 안든다지만 좀 신경쓰여서, 집에서 공짜로 놀고있는 라즈베리파이 두 대를 이참에 써먹어 보기로 하고 시작했다. 
+
+구축 환경
+- Ubuntu 20.04.5 LTS
+- Raspberry pi 4
+- VScode-server
 
 ## 1. 초기화
 
@@ -59,7 +64,7 @@ sudo wpa_passphrase "SSID" > wpa_supplicant.conf
 
 연결되는데는 잠깐 시간이 걸린다. 이후 다시 iw wlan0 link를 통해서 연결이 되었는지 확인할 수 있다. 
 
-> reference  
+## Reference  
 
 - https://meyouus.tistory.com/138
 - https://hiseon.me/linux/command/linux-wifi-command-line/
